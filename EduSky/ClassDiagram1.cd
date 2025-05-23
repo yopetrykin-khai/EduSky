@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="EduSky.AuthService">
+    <Position X="6.5" Y="0.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAUAAAAAAA=</HashCode>
+      <FileName>AuthService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.Course">
+    <Position X="10.75" Y="5.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAQEAAgAEAAAAAAAAIAAAAAAAAAAAEIAgAAAAA=</HashCode>
+      <FileName>Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.EduSkyProgramm">
+    <Position X="14.25" Y="5.5" Width="5.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAIAQAAAAAAAAAAAQAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>EduSkyProgramm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.Guest">
+    <Position X="6.5" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.JsonDataService&lt;T&gt;">
+    <Position X="3.75" Y="2.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JsonDataService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="EduSky.RegisteredUser">
+    <Position X="15.5" Y="2.25" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAUAAAAABAAgAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>RegisteredUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.Task">
+    <Position X="4.5" Y="5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAAAAABCAAAQAAAAAgA=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.Teacher">
+    <Position X="9.25" Y="2.75" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAACAAAAAAAAAAAAAAABAAAQ=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EduSky.User">
+    <Position X="8.25" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAQAAAAQAAACAAAQAAAAAEA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EduSky.IDataService&lt;T&gt;">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IDataService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="EduSky.UserRole">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
