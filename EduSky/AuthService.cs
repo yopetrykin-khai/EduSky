@@ -12,17 +12,21 @@ namespace EduSky
 
         public AuthService(IDataService<User> userService)
         {
-            throw new NotImplementedException();
+            _userService = userService;
         }
 
         public User? Login(string login, string password)
         {
-            throw new NotImplementedException();
+            return EduSkyProgramm.Users.FirstOrDefault(u => u.Login == login && u.Password == password);
         }
 
         public bool Register(User newUser)
         {
-            throw new NotImplementedException();
+            if (EduSkyProgramm.Users.Any(u => u.Login == newUser.Login)) return false;
+
+            EduSkyProgramm.Users.Add(newUser);
+            _userService.Save(EduSkyProgramm.Users);
+            return true;
         }
     }
 

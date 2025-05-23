@@ -19,12 +19,19 @@ namespace EduSky
 
         public void EnrollUser(string loginl)
         {
-            throw new NotImplementedException();
+            if (!EnrolledUserLogins.Contains(loginl))
+            {
+                EnrolledUserLogins.Add(loginl);
+                UserEnrolled?.Invoke(loginl);
+            }
         }
 
         public void LeaveCourse(string login)
         {
-            throw new NotImplementedException();
+            if (EnrolledUserLogins.Remove(login))
+            {
+                UserLeft?.Invoke(login);
+            }
         }
     }
 }

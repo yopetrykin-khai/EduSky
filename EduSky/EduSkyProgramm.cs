@@ -14,12 +14,14 @@ namespace EduSky
 
         public static void LoadData(IDataService<User> userService, IDataService<Course> courseService)
         {
-            throw new NotImplementedException();
+            Users = userService.Load();
+            Courses = courseService.Load();
         }
 
         public static void SaveData(IDataService<User> userService, IDataService<Course> courseService)
         {
-            throw new NotImplementedException();
+            userService.Save(Users);
+            courseService.Save(Courses);
         }
     }
 }

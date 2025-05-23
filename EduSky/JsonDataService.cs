@@ -21,12 +21,15 @@ namespace EduSky
 
         public List<T> Load()
         {
-            throw new NotImplementedException();
+            if (!File.Exists(_filePath)) return new List<T>();
+            var json = File.ReadAllText(_filePath);
+            return JsonConvert.DeserializeObject<List<T>>(json) ?? new List<T>();
         }
 
         public void Save(List<T> items)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(items, Newtonsoft.Json.Formatting.Indented);
+            File.WriteAllText(_filePath, json);
         }
     }
 }

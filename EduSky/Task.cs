@@ -17,7 +17,8 @@ namespace EduSky
 
         public void SubmitAnswer(string login, string filePath)
         {
-            throw new NotImplementedException();
+            UserAnswers[login] = filePath;
+            AnswerSubmitted?.Invoke(login, filePath);
         }
     }
 }
