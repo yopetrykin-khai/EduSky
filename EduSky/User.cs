@@ -10,9 +10,13 @@ namespace EduSky
     {
         public string Login { get; set; }
         public string Password { get; set; }
-        public string Name { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string GraduatedFrom { get; set; }
+        public DateTime? BirthDate { get; set; }
+        public string? Name { get; set; }
+        public string? GraduatedFrom { get; set; }
+        public virtual string GetProfileInfo()
+        {
+            return $"Ім'я: {Name}\nОсвіта: {GraduatedFrom}\nРоль: {GetRole()}";
+        }
 
         public abstract string GetRole();
     }

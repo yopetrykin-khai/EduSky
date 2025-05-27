@@ -20,7 +20,6 @@ namespace EduSky
                     Login = this.Login,
                     Password = this.Password,
                     Name = this.Name,
-                    DateOfBirth = this.DateOfBirth,
                     GraduatedFrom = this.GraduatedFrom
                 },
                 UserRole.Student => new RegisteredUser
@@ -28,7 +27,6 @@ namespace EduSky
                     Login = this.Login,
                     Password = this.Password,
                     Name = this.Name,
-                    DateOfBirth = this.DateOfBirth,
                     GraduatedFrom = this.GraduatedFrom
                 },
                 _ => throw new ArgumentException("Невідома роль")

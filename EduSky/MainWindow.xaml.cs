@@ -20,6 +20,25 @@ namespace EduSky
         public MainWindow()
         {
             InitializeComponent();
+
+            var courses = EduSkyProgramm.Courses.Take(6).ToList();
+
+            if (courses.Any())
+            {
+                CoursesPanel.ItemsSource = courses;
+                NoCoursesMessage.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NoCoursesMessage.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var loginWindow = new LoginWindow();
+            loginWindow.Show();
+            this.Close();
         }
     }
 }

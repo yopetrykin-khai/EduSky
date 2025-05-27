@@ -25,7 +25,8 @@ namespace EduSky
             if (EduSkyProgramm.Users.Any(u => u.Login == newUser.Login)) return false;
 
             EduSkyProgramm.Users.Add(newUser);
-            _userService.Save(EduSkyProgramm.Users);
+            _userService.Save(EduSkyProgramm.Users); // локальне збереження
+            EduSkyProgramm.SaveData(_userService, new JsonDataService<Course>("courses.json")); // глобальне
             return true;
         }
     }

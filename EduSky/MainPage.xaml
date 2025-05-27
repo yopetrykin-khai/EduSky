@@ -1,0 +1,50 @@
+﻿<Window x:Class="EduSky.MainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EduSky" Height="720" Width="1080" Background="White">
+    <Grid Margin="10">
+        <Path Fill="#80B284" Stretch="Fill" Height="120" VerticalAlignment="Top">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="0,100">
+                        <BezierSegment Point1="200,0" Point2="800,200" Point3="1080,100" />
+                        <LineSegment Point="1080,0" />
+                        <LineSegment Point="0,0" />
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+        <TextBlock Text="EduSky" FontSize="28" FontWeight="Bold"
+           HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0"/>
+
+        <DockPanel LastChildFill="False" VerticalAlignment="Top" Height="100">
+            <Grid Width="40" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
+                <Ellipse Margin="1005,0,-1005,0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/ProfilePicture.png"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Button Background="Transparent" BorderThickness="0" ToolTip="Профиль" Click="ProfileButton_Click" Margin="1005,0,-1005,0"/>
+            </Grid>
+
+
+        </DockPanel>
+        <Grid Margin="0,110,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Content="My courses" Click="MyCourses_Click" HorizontalAlignment="Center" FontWeight="Bold" Height="25" VerticalAlignment="Top"/>
+            <Button Content="All the courses" Click="AllCourses_Click" HorizontalAlignment="Left" FontWeight="Bold" Height="25" VerticalAlignment="Top" Margin="343,0,0,0"/>
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" Margin="0,160,0,0">
+            <ItemsControl Name="CoursesPanel">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Window>
