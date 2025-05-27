@@ -33,6 +33,7 @@ namespace EduSky
         {
             if (!isEditing)
             {
+                BtSaveChanges.Visibility = Visibility.Visible;
                 TaskTitleBox.IsReadOnly = false;
                 TaskDescriptionBox.IsReadOnly = false;
                 TaskTitleBox.BorderBrush = Brushes.Black;
@@ -51,6 +52,7 @@ namespace EduSky
                 TaskDescriptionBox.IsReadOnly = true;
                 TaskTitleBox.Background = Brushes.Transparent;
                 TaskDescriptionBox.Background = Brushes.Transparent;
+                BtSaveChanges.Visibility = Visibility.Collapsed;
             }
         }
         private void GradeTextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -163,6 +165,7 @@ namespace EduSky
                 _task.Description = TaskDescriptionBox.Text;
                 EduSkyProgramm.SaveAll();
                 MessageBox.Show("Changes saved.");
+                BtSaveChanges.Visibility = Visibility.Collapsed;
                 DialogResult = true;
             }
             catch (Exception ex)

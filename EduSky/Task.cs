@@ -18,8 +18,8 @@ namespace EduSky
             {
                 if (string.IsNullOrWhiteSpace(value))
                     throw new Exception("Enter the name!.");
-                if (value.Length > 18)
-                    throw new Exception("Name of the course should be less than 18 elements.");
+                if (value.Length > 35)
+                    throw new Exception("Name of the course should be less than 35 elements.");
                 _title = value;
             }
         }

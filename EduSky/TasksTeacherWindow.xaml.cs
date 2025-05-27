@@ -98,21 +98,28 @@ namespace EduSky
         }
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            var newTask = new Task
+            try
             {
-                Title = "New Task",
-                Description = "",
-                Answers = new List<StudentAnswer>(),
-                MethodicalFilePath = ""
-            };
-            var addTaskWindow = new AddOrChangeTask(newTask, _teacher);
-            var result = addTaskWindow.ShowDialog();
-            if (result == true)
-            {
-                _course.Tasks.Add(newTask);
-                EduSkyProgramm.SaveAll();
+                var newTask = new Task
+                {
+                    Title = "New Task",
+                    Description = "Write description here",
+                    Answers = new List<StudentAnswer>(),
+                    MethodicalFilePath = ""
+                };
+                var addTaskWindow = new AddOrChangeTask(newTask, _teacher);
+                var result = addTaskWindow.ShowDialog();
+                if (result == true)
+                {
+                    _course.Tasks.Add(newTask);
+                    EduSkyProgramm.SaveAll();
+                }
+                LoadTasks();
             }
-            LoadTasks();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void DeleteCourse_Click(object sender, MouseButtonEventArgs e)
         {
