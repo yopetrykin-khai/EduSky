@@ -57,7 +57,11 @@ namespace EduSky
                 MessageBox.Show("Please enter a course name.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
+            if (_selectedImagePath == null)
+            {
+                MessageBox.Show("Please select an image for the course.", "Validation", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             var teacher = EduSkyProgramm.CurrentUser as Teacher;
             if (teacher == null)
             {
@@ -70,9 +74,11 @@ namespace EduSky
             }
             string imagePath = _selectedImagePath ?? "";
             bool success = teacher.CreateCourse(title, imagePath);
+            EduSkyProgramm.SaveAll();
             if (success)
             {
                 MessageBox.Show("Course created successfully!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                DialogResult = true;
                 Close();
             }
             else

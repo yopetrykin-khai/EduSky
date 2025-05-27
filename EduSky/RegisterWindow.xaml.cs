@@ -39,32 +39,38 @@ namespace EduSky
             var selectedRole = UserRole.Student;
             foreach (var child in ((StackPanel)((StackPanel)NameBox.Parent).Children[6]).Children)
             {
-                if (child is RadioButton rb && rb.IsChecked == true)
+                if (child is RadioButton rb && rb.IsChecked == true && rb.Content.ToString() == "Teacher")
                 {
-                    if (rb.Content.ToString() == "Teacher")
-                        selectedRole = UserRole.Teacher;
+                    selectedRole = UserRole.Teacher;
                 }
             }
 
-            var guest = new Guest
+            try
             {
-                Name = name,
-                Login = login,
-                Password = password
-            };
+                var guest = new Guest
+                {
+                    Name = name,
+                    Login = login,
+                    Password = password
+                };
 
-            var user = guest.Register(selectedRole);
+                var user = guest.Register(selectedRole);
 
-            if (_authService.Register(user))
-            {
-                EduSkyProgramm.CurrentUser = user;
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                if (_authService.Register(user))
+                {
+                    EduSkyProgramm.CurrentUser = user;
+                    var mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("A user with such a login already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("A user with such a login already exists.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Registration failed:\n{ex.Message}", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

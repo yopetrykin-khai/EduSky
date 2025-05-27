@@ -114,7 +114,7 @@ namespace EduSky
                 if (dialog.ShowDialog() == true)
                 {
                     _task.MethodicalFilePath = dialog.FileName;
-                    DownloadMethodicalButton.Content = "📄 " + Path.GetFileName(_task.MethodicalFilePath);
+                    DownloadMethodicalButton.Content = "📄 " + dialog.FileName.ToString();
                 }
             }
         }
@@ -157,11 +157,18 @@ namespace EduSky
 
         private void SaveChanges_Click(object sender, RoutedEventArgs e)
         {
-            _task.Title = TaskTitleBox.Text;
-            _task.Description = TaskDescriptionBox.Text;
-            EduSkyProgramm.SaveAll();
-            MessageBox.Show("Changes saved.");
-            DialogResult = true;
+            try
+            {
+                _task.Title = TaskTitleBox.Text;
+                _task.Description = TaskDescriptionBox.Text;
+                EduSkyProgramm.SaveAll();
+                MessageBox.Show("Changes saved.");
+                DialogResult = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         private void DeleteTask_Click(object sender, RoutedEventArgs e)

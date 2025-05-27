@@ -72,20 +72,28 @@ namespace EduSky
                 MessageBox.Show("Invalid date format. Use dd/MM/yyyy.");
                 return;
             }
-            EduSkyProgramm.CurrentUser.Name = txtB_name.Text;
-            EduSkyProgramm.CurrentUser.BirthDate = parsedDate;
-            EduSkyProgramm.CurrentUser.GraduatedFrom = txtB_education.Text;
 
-            EduSkyProgramm.SaveAll(); 
+            try
+            {
+                EduSkyProgramm.CurrentUser.Name = txtB_name.Text;
+                EduSkyProgramm.CurrentUser.BirthDate = parsedDate;
+                EduSkyProgramm.CurrentUser.GraduatedFrom = txtB_education.Text;
 
-            txtB_name.IsReadOnly = true;
-            txtB_date.IsReadOnly = true;
-            txtB_education.IsReadOnly = true;
+                EduSkyProgramm.SaveAll();
 
-            btnSave.Visibility = Visibility.Collapsed;
-            isEditing = false;
+                txtB_name.IsReadOnly = true;
+                txtB_date.IsReadOnly = true;
+                txtB_education.IsReadOnly = true;
 
-            MessageBox.Show("Profile updated successfully!");
+                btnSave.Visibility = Visibility.Collapsed;
+                isEditing = false;
+
+                MessageBox.Show("Profile updated successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Update failed:\n{ex.Message}", "Validation Error", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
     }

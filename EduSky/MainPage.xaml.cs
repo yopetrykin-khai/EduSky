@@ -19,6 +19,29 @@ namespace EduSky
         public MainPage()
         {
             InitializeComponent();
+            CoursesPanel.Items.Clear();
+
+            if (EduSkyProgramm.CurrentUser is not RegisteredUser student)
+                return;
+
+            var enrolledCourses = EduSkyProgramm.Courses
+                .Where(c => student.EnrolledCourseTitles.Contains(c.Title))
+                .Take(6)
+                .ToList();
+
+            if (enrolledCourses.Count == 0)
+            {
+                NoCoursesMessage.Visibility = Visibility.Visible;
+                CoursesPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NoCoursesMessage.Visibility = Visibility.Collapsed;
+                CoursesPanel.Visibility = Visibility.Visible;
+
+                foreach (var course in enrolledCourses)
+                    CoursesPanel.Items.Add(CreateCourseCard(course, isMyCourse: true));
+            }
         }
 
         private void MyCourses_Click(object sender, RoutedEventArgs e)
@@ -30,10 +53,22 @@ namespace EduSky
 
             var enrolledCourses = EduSkyProgramm.Courses
                 .Where(c => student.EnrolledCourseTitles.Contains(c.Title))
-                .Take(6); 
+                .Take(6)
+                .ToList();
 
-            foreach (var course in enrolledCourses)
-                CoursesPanel.Items.Add(CreateCourseCard(course, isMyCourse: true));
+            if (enrolledCourses.Count == 0)
+            {
+                NoCoursesMessage.Visibility = Visibility.Visible;
+                CoursesPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NoCoursesMessage.Visibility = Visibility.Collapsed;
+                CoursesPanel.Visibility = Visibility.Visible;
+
+                foreach (var course in enrolledCourses)
+                    CoursesPanel.Items.Add(CreateCourseCard(course, isMyCourse: true));
+            }
         }
 
         private void AllCourses_Click(object sender, RoutedEventArgs e)
@@ -44,11 +79,24 @@ namespace EduSky
                 return;
 
             var availableCourses = EduSkyProgramm.Courses
-                .Where(c => !student.EnrolledCourseTitles.Contains(c.Title));
+                .Where(c => !student.EnrolledCourseTitles.Contains(c.Title))
+                .ToList();
 
-            foreach (var course in availableCourses)
-                CoursesPanel.Items.Add(CreateCourseCard(course, isMyCourse: false));
+            if (availableCourses.Count == 0)
+            {
+                NoCoursesMessage.Visibility = Visibility.Visible;
+                CoursesPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                NoCoursesMessage.Visibility = Visibility.Collapsed;
+                CoursesPanel.Visibility = Visibility.Visible;
+
+                foreach (var course in availableCourses)
+                    CoursesPanel.Items.Add(CreateCourseCard(course, isMyCourse: false));
+            }
         }
+
 
         private Border CreateCourseCard(Course course, bool isMyCourse)
         {

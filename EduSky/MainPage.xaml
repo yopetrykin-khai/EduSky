@@ -34,6 +34,8 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+            <TextBlock x:Name="NoCoursesMessage" Text="No courses available yet." 
+           FontSize="16" Foreground="Gray" Visibility="Collapsed" Margin="10"/>
             <Button Content="My courses" Click="MyCourses_Click" HorizontalAlignment="Center" FontWeight="Bold" Height="25" VerticalAlignment="Top"/>
             <Button Content="All the courses" Click="AllCourses_Click" HorizontalAlignment="Left" FontWeight="Bold" Height="25" VerticalAlignment="Top" Margin="343,0,0,0"/>
         </Grid>

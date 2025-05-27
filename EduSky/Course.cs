@@ -30,6 +30,10 @@ namespace EduSky
         {
             if (EnrolledUserLogins.Remove(login))
             {
+                foreach (var task in Tasks)
+                {
+                    task.Answers.RemoveAll(answer => answer.StudentLogin == login);
+                }
                 UserLeft?.Invoke(login);
             }
         }
